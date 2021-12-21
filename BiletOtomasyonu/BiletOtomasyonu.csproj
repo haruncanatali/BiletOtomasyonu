@@ -127,7 +127,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BiletController.cs" />
+    <Compile Include="Controllers\HakkimizdaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MusteriController.cs" />
+    <Compile Include="Controllers\OtobusController.cs" />
+    <Compile Include="Controllers\SeferController.cs" />
+    <Compile Include="Controllers\SehirController.cs" />
     <Compile Include="DbAccess\Abstract\IBiletDal.cs" />
     <Compile Include="DbAccess\Abstract\IEntityRepository.cs" />
     <Compile Include="DbAccess\Abstract\IFilter.cs" />
@@ -196,6 +202,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Bilet\" />
+    <Folder Include="Views\Hakkimizda\" />
+    <Folder Include="Views\Musteri\" />
+    <Folder Include="Views\Otobus\" />
+    <Folder Include="Views\Sefer\" />
+    <Folder Include="Views\Sehir\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
