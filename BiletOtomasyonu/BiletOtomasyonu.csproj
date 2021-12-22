@@ -160,6 +160,7 @@
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Musteri.cs" />
     <Compile Include="Models\Otobus.cs" />
+    <Compile Include="Models\OtobusDto.cs" />
     <Compile Include="Models\ProjeDbContext.cs" />
     <Compile Include="Models\Sefer.cs" />
     <Compile Include="Models\Sehir.cs" />
@@ -170,6 +171,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Img\bus_main.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -199,15 +201,24 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Musteri\Index.cshtml" />
+    <Content Include="Views\Musteri\Add.cshtml" />
+    <Content Include="Views\Musteri\Update.cshtml" />
+    <Content Include="Views\Sehir\Index.cshtml" />
+    <Content Include="Views\Sehir\Add.cshtml" />
+    <Content Include="Views\Sehir\Update.cshtml" />
+    <Content Include="Views\Otobus\Index.cshtml" />
+    <Content Include="Views\Otobus\Add.cshtml" />
+    <Content Include="Views\Otobus\Update.cshtml" />
+    <Content Include="Views\Sefer\Index.cshtml" />
+    <Content Include="Views\Sefer\Add.cshtml" />
+    <Content Include="Views\Sefer\Update.cshtml" />
+    <Content Include="Views\Bilet\Index.cshtml" />
+    <Content Include="Views\Bilet\Add.cshtml" />
+    <Content Include="Views\Hakkimizda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Bilet\" />
-    <Folder Include="Views\Hakkimizda\" />
-    <Folder Include="Views\Musteri\" />
-    <Folder Include="Views\Otobus\" />
-    <Folder Include="Views\Sefer\" />
-    <Folder Include="Views\Sehir\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,0 +1,43 @@
+﻿@{
+    
+}
+
+<h2 class="h2 text-center mt-2">Otobüs Ekleme Sayfası</h2>
+<hr />
+<form action="/Otobus/Add" method="post">
+    <div style="margin-left: 10px;">
+        <div class="row">
+            <div class="col-md-4">
+                <label><span class="h4">Plaka</span></label>
+                <input class="form-control mt-3" style="width: 300px;" type="text" id="Plaka" name="Plaka"/>
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Marka</span></label>
+                <input class="form-control mt-3" style="width: 300px;" type="text" id="Marka" name="Marka"/>
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Model</span></label>
+                <input class="form-control mt-3" style="width: 300px;" type="text" id="Model" name="Model"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label><span class="h4">Firma</span></label>
+                <input class="form-control mt-3" style="width: 300px;" type="text" id="Firma" name="Firma"/>
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Mevcut</span></label>
+                <input class="form-control mt-3" style="width: 300px;" type="text" id="Mevcut" name="Mevcut" value="@Model.Mevcut"/>
+            </div>
+            <div class="col-md-4"> <!--mt3w300p-->
+                <label><span class="h4">Özellikler</span></label>
+                <input class="form-control mt-3" style="width: 300px;" type="text" id="Ozellikler" name="Ozellikler"/>
+            </div>
+        </div>
+        <br />
+        <div class="row d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mt-2" style="width: 200px;">Ekle</button>
+        </div>
+    </div>
+</form>
+

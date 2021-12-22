@@ -15,7 +15,7 @@ namespace BiletOtomasyonu.DbAccess.Concrete
         {
             using (ProjeDbContext context = new ProjeDbContext())
             {
-                return context.Tbl_Bilet.Include(c => c.Seferi).FirstOrDefault(filter);
+                return context.Tbl_Bilet.Include(c => c.Seferi).Include(c=>c.Musterisi).FirstOrDefault(filter);
             }
         }
 
@@ -24,8 +24,8 @@ namespace BiletOtomasyonu.DbAccess.Concrete
             using (ProjeDbContext context = new ProjeDbContext())
             {
                 return filter == null
-                    ? context.Tbl_Bilet.Include(c => c.Seferi).ToList()
-                    : context.Tbl_Bilet.Include(c => c.Seferi).Where(filter).ToList();
+                    ? context.Tbl_Bilet.Include(c => c.Seferi).Include(c=>c.Musterisi).ToList()
+                    : context.Tbl_Bilet.Include(c => c.Seferi).Include(c=>c.Musterisi).Where(filter).ToList();
             }
         }
     }

@@ -22,6 +22,7 @@ namespace BiletOtomasyonu.Mapping
             this.Property(c => c.VarisYeri).HasColumnName("VarisYeri");
             this.Property(c => c.KalkisZamani).HasColumnName("KalkisZamani");
             this.Property(c => c.TahminiVarisZamani).HasColumnName("TahminiVarisZamani");
+            this.Property(c => c.Ucret).HasColumnName("SeferUcreti");
         }
     }
 }

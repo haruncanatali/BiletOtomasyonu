@@ -1,0 +1,53 @@
+﻿@model BiletOtomasyonu.Models.Sefer
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2 class="h2 text-center mt-2">Sefer Ekleme Sayfası</h2>
+<hr />
+<div style="margin-left: 10px;">
+    @using (Html.BeginForm("Add", "Sefer", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <label><span class="h4">Kalkış Yeri</span></label>
+                @Html.DropDownListFor(c => c.KalkisYeri, (List<SelectListItem>)ViewBag.sehirler, new { @class = "form-control mt-3", @style = "width: 300px;" })
+                @Html.ValidationMessageFor(c => c.KalkisYeri, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Varış Yeri</span></label>
+                @Html.DropDownListFor(c => c.VarisYeri, (List<SelectListItem>)ViewBag.sehirler, new { @class = "form-control mt-3", @style = "width: 300px;" })
+                @Html.ValidationMessageFor(c => c.VarisYeri, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Kalkış Zamanı</span></label>
+                @Html.TextBoxFor(c => c.KalkisZamani, new { @class = "form-control mt-3", @style = "width:300px;" })
+                @Html.ValidationMessageFor(c => c.KalkisZamani, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <label><span class="h4">Tahmini Varış Zamanı</span></label>
+                @Html.TextBoxFor(c => c.TahminiVarisZamani, new { @class = "form-control mt-3", @style = "width:300px;" })
+                @Html.ValidationMessageFor(c => c.TahminiVarisZamani, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Otobüs</span></label>
+                @Html.DropDownListFor(c => c.OtobusId, (List<SelectListItem>)ViewBag.otobusler, new { @class = "form-control mt-3", @style = "width: 300px;" })
+                @Html.ValidationMessageFor(c => c.OtobusId, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Ücret</span></label>
+                @Html.TextBoxFor(c => c.Ucret, new { @class = "form-control mt-3", @style = "width:300px;" })
+                @Html.ValidationMessageFor(c => c.Ucret, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="row d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mt-2" style="width: 200px;">Ekle</button>
+        </div>
+    }
+</div>
+

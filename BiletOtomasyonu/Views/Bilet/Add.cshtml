@@ -1,0 +1,31 @@
+﻿@model BiletOtomasyonu.Models.Bilet
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2 class="h2 text-center mt-2">Bilet Ekleme Sayfası</h2>
+<hr />
+<div style="margin-left: 10px;">
+    @using (Html.BeginForm("Add", "Bilet", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <label><span class="h4">Müşteri</span></label>
+                @Html.DropDownListFor(c => c.MusteriId, (List<SelectListItem>)ViewBag.musteriler, new { @class = "form-control mt-3", @style = "width: 300px;" })
+                @Html.ValidationMessageFor(c => c.MusteriId, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-md-4">
+                <label><span class="h4">Sefer</span></label>
+                @Html.DropDownListFor(c => c.SeferId, (List<SelectListItem>)ViewBag.seferler, new { @class = "form-control mt-3", @style = "width: 500px;" })
+                @Html.ValidationMessageFor(c => c.SeferId, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="row d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary mt-2" style="width: 200px;">Ekle</button>
+        </div>
+    }
+</div>
+

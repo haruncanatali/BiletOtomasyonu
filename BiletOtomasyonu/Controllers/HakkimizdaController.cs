@@ -8,7 +8,6 @@ namespace BiletOtomasyonu.Controllers
 {
     public class HakkimizdaController : Controller
     {
-        // GET: Hakkimizda
         public ActionResult Index()
         {
             return View();

@@ -3,5 +3,49 @@
     ViewBag.Title = "Home Page";
 }
 
-<h2>Ülkedeki Şehir Sayısı</h2><hr/>
-<p>@ViewBag.denemeData</p>
+<h2 class="text-center h2">Anasayfa</h2>
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="card mt-2" style="width: 16rem; height: 150px; background-color: #6ab04c; display:inline-block; margin-left:30px;">
+        <div class="card-body">
+            <h4 class="h4 text-white">Toplam Müşteri Sayısı</h4>
+            <h4 class="h4 text-white" style="text-align:end;">@ViewBag.musteriSayisi</h4>
+        </div>
+    </div>
+    <div class="card mt-2" style="margin-left: 10px; width: 16rem; height: 150px; background-color: #eb4d4b; display:inline-block;">
+        <div class="card-body">
+            <h4 class="h4 text-white">Toplam Bilet Sayısı</h4>
+            <h4 class="h4 text-white" style="text-align:end;">@ViewBag.biletSayisi</h4>
+        </div>
+    </div>
+
+    <div class="card mt-2" style="margin-left: 10px; width: 16rem; height: 150px; background-color: #130f40; display: inline-block;">
+        <div class="card-body">
+            <h4 class="h4 text-white">Toplam Otobüs Sayısı</h4>
+            <h4 class="h4 text-white" style="text-align:end;">@ViewBag.otobusSayisi</h4>
+        </div>
+    </div>
+
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="card mt-2" style="width: 16rem; height: 150px; background-color: #6ab04c; display:inline-block; margin-left:30px;">
+        <div class="card-body">
+            <h4 class="h4 text-white">Toplam Şehir Sayısı</h4>
+            <h4 class="h4 text-white" style="text-align:end;">@ViewBag.sehirSayisi</h4>
+        </div>
+    </div>
+    <div class="card mt-2" style="margin-left: 10px; width: 16rem; height: 150px; background-color: #eb4d4b; display: inline-block;">
+        <div class="card-body">
+            <h4 class="h4 text-white">Toplam Sefer Sayısı</h4>
+            <h4 class="h4 text-white" style="text-align:end;">@ViewBag.seferSayisi</h4>
+        </div>
+    </div>
+
+    <div class="card mt-2" style="margin-left: 10px; width: 16rem; height: 150px; background-color: #130f40; display: inline-block;">
+        <div class="card-body">
+            <h4 class="h4 text-white">Kasa</h4>
+            <h4 class="h4 text-white" style="text-align:end;">@ViewBag.kasa&nbsp;TL</h4>
+        </div>
+    </div>
+</div>
