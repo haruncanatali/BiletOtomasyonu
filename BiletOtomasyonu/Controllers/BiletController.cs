@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,16 +15,27 @@ namespace BiletOtomasyonu.Controllers
         private IBiletDal biletServis;
         private IMusteriDal musteriServis;
         private ISeferDal seferServis;
+        private ISorumluDal sorumluServis;
 
         public BiletController()
         {
             biletServis = new BiletDal();
             musteriServis = new MusteriDal();
             seferServis = new SeferDal();
+            sorumluServis = new SorumluDal();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string val = null)
         {
+            if (!String.IsNullOrEmpty(val))
+            {
+                var result = biletServis.GetEntities(c =>
+                    (c.Musterisi.Ad + " " + c.Musterisi.Soyad).ToLower().Contains(val.ToLower()));
+                if (result!=null && result.Count>0)
+                {
+                    return View(result);
+                }
+            }
             return View(biletServis.GetEntities(null));
         }
 
@@ -68,16 +80,23 @@ namespace BiletOtomasyonu.Controllers
 
         public void IliskiliBilgileriAyarla()
         {
-            ViewBag.musteriler = (from x in musteriServis.GetEntities(null) select new SelectListItem
+            ViewBag.musteriler = (from x in musteriServis.GetEntities(null)
+                                  select new SelectListItem
+                                  {
+                                      Text = x.Ad + " " + x.Soyad + " " + x.Tckn,
+                                      Value = x.Id.ToString()
+                                  }).ToList();
+            ViewBag.seferler = (from x in seferServis.GetEntities(c => c.Biletleri.Count != c.Otobusu.Mevcut)
+                                select new SelectListItem
+                                {
+                                    Text = x.KalkisYeri + "->" + x.VarisYeri + ":" + x.KalkisZamani.ToString("dddd, dd MMMM yyyy HH:mm:ss") + " " + x.Otobusu.Plaka,
+                                    Value = x.Id.ToString()
+                                }).ToList(); // kapasitesi dolmayan otobüsler geliyor
+            ViewBag.sorumlular = (from x in sorumluServis.GetEntities(null) select new SelectListItem
             {
                 Text = x.Ad+" "+x.Soyad+" "+x.Tckn,
                 Value = x.Id.ToString()
             }).ToList();
-            ViewBag.seferler = (from x in seferServis.GetEntities(c=>c.Biletleri.Count!=c.Otobusu.Mevcut) select new SelectListItem
-            {
-                Text = x.KalkisYeri+"->"+x.VarisYeri+":"+x.KalkisZamani.ToString("dddd, dd MMMM yyyy HH:mm:ss") + " "+x.Otobusu.Plaka,
-                Value = x.Id.ToString()
-            }).ToList(); // kapasitesi dolmayan otobüsler geliyor
         }
     }
 }

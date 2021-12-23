@@ -134,6 +134,8 @@
     <Compile Include="Controllers\OtobusController.cs" />
     <Compile Include="Controllers\SeferController.cs" />
     <Compile Include="Controllers\SehirController.cs" />
+    <Compile Include="Controllers\SoforController.cs" />
+    <Compile Include="Controllers\SorumluController.cs" />
     <Compile Include="DbAccess\Abstract\IBiletDal.cs" />
     <Compile Include="DbAccess\Abstract\IEntityRepository.cs" />
     <Compile Include="DbAccess\Abstract\IFilter.cs" />
@@ -141,12 +143,16 @@
     <Compile Include="DbAccess\Abstract\IOtobusDal.cs" />
     <Compile Include="DbAccess\Abstract\ISeferDal.cs" />
     <Compile Include="DbAccess\Abstract\ISehirDal.cs" />
+    <Compile Include="DbAccess\Abstract\ISorumluDal.cs" />
+    <Compile Include="DbAccess\Abstract\ISurucuDal.cs" />
     <Compile Include="DbAccess\Concrete\BiletDal.cs" />
     <Compile Include="DbAccess\Concrete\EntityRepositoryBase.cs" />
     <Compile Include="DbAccess\Concrete\MusteriDal.cs" />
     <Compile Include="DbAccess\Concrete\OtobusDal.cs" />
     <Compile Include="DbAccess\Concrete\SeferDal.cs" />
     <Compile Include="DbAccess\Concrete\SehirDal.cs" />
+    <Compile Include="DbAccess\Concrete\SorumluDal.cs" />
+    <Compile Include="DbAccess\Concrete\SurucuDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -155,6 +161,8 @@
     <Compile Include="Mapping\OtobusMap.cs" />
     <Compile Include="Mapping\SeferMap.cs" />
     <Compile Include="Mapping\SehirMap.cs" />
+    <Compile Include="Mapping\SorumluMap.cs" />
+    <Compile Include="Mapping\SurucuMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bilet.cs" />
     <Compile Include="Models\IEntity.cs" />
@@ -164,6 +172,8 @@
     <Compile Include="Models\ProjeDbContext.cs" />
     <Compile Include="Models\Sefer.cs" />
     <Compile Include="Models\Sehir.cs" />
+    <Compile Include="Models\Sorumlu.cs" />
+    <Compile Include="Models\Surucu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +226,12 @@
     <Content Include="Views\Bilet\Index.cshtml" />
     <Content Include="Views\Bilet\Add.cshtml" />
     <Content Include="Views\Hakkimizda\Index.cshtml" />
+    <Content Include="Views\Sofor\Index.cshtml" />
+    <Content Include="Views\Sofor\Add.cshtml" />
+    <Content Include="Views\Sofor\Update.cshtml" />
+    <Content Include="Views\Sorumlu\Index.cshtml" />
+    <Content Include="Views\Sorumlu\Add.cshtml" />
+    <Content Include="Views\Sorumlu\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

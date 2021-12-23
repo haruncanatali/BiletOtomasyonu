@@ -7,20 +7,20 @@ using BiletOtomasyonu.Models;
 
 namespace BiletOtomasyonu.Mapping
 {
-    public class BiletMap:EntityTypeConfiguration<Bilet>
+    public class SorumluMap:EntityTypeConfiguration<Sorumlu>
     {
-        public BiletMap()
+        public SorumluMap()
         {
             this.HasKey(c => c.Id);
             this.Property(c => c.Id)
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption
                     .Identity);
 
-            this.ToTable("Tbl_Bilet");
+            this.ToTable("Tbl_Sorumlu");
             this.Property(c => c.Id).HasColumnName("Id");
-            this.Property(c => c.MusteriId).HasColumnName("MusteriId");
-            this.Property(c => c.SeferId).HasColumnName("SeferId");
-            this.Property(c => c.SorumluId).HasColumnName("SorumluId");
+            this.Property(c => c.Ad).HasColumnName("Ad");
+            this.Property(c => c.Soyad).HasColumnName("Soyad");
+            this.Property(c => c.Tckn).HasColumnName("Tckn");
         }
     }
 }

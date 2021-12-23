@@ -15,7 +15,7 @@ namespace BiletOtomasyonu.DbAccess.Concrete
         {
             using (ProjeDbContext context = new ProjeDbContext())
             {
-                return context.Tbl_Otobus.Include(c => c.Seferleri).FirstOrDefault(filter);
+                return context.Tbl_Otobus.Include(c => c.Seferleri).Include(c=>c.Suruculeri).FirstOrDefault(filter);
             }
         }
 
@@ -24,8 +24,8 @@ namespace BiletOtomasyonu.DbAccess.Concrete
             using (ProjeDbContext context = new ProjeDbContext())
             {
                 return filter == null
-                    ? context.Tbl_Otobus.Include(c => c.Seferleri).ToList()
-                    : context.Tbl_Otobus.Include(c => c.Seferleri).Where(filter).ToList();
+                    ? context.Tbl_Otobus.Include(c => c.Seferleri).Include(c=>c.Suruculeri).ToList()
+                    : context.Tbl_Otobus.Include(c => c.Seferleri).Include(c=>c.Suruculeri).Where(filter).ToList();
             }
         }
     }

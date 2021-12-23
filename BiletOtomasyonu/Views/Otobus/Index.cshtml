@@ -14,8 +14,12 @@
 }
 else
 {
-    <div class="text-end" style="margin-right: 15px; margin-bottom: 5px;">
-        <a href="/Otobus/Add" class="btn btn-primary">Ekle</a>
+    <div class="row mt-2 mb-2">
+        <form action="/Otobus/Index" method="get">
+            <input type="text" id="val" name="val" class="form-control" style="float: left; width: 90%; margin-left: 10px;" placeholder="Otobüs Plakası Örn. 61SA967" />
+            <input type="submit" class="btn btn-success btn-sm" value="Ara" style="float: left; margin-top: 3px; margin-left: 3px;" />
+            <a href="/Otobus/Add" class="btn btn-primary btn-sm" style="float: left; width: 50px; margin-top: 3px; margin-left: 3px;">Ekle</a>
+        </form>
     </div>
     <table class="table table-bordered table-striped">
         <thead>
@@ -28,6 +32,7 @@ else
             <th>Mevcut</th>
             <th>Özellikler</th>
             <th>Seferde mi?</th>
+            <th>Şoför Sayısı</th>
             <th>Veritabanı İşlemleri</th>
         </tr>
         </thead>
@@ -48,6 +53,7 @@ else
                         var durum = item.Seferleri.Count == 0 ? "Hayır" : "Evet";
                     }@durum
                 </td>
+                <td>@item.Suruculeri.Count</td>
                 <td class="text-center">
                     <div class="row">
                         <div class="col-md-4">

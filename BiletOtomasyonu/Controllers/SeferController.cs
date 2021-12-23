@@ -27,8 +27,16 @@ namespace BiletOtomasyonu.Controllers
             İliskiliBilgileriAl();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string val = null)
         {
+            if (!String.IsNullOrEmpty(val))
+            {
+                var result = seferServis.GetEntities(c => c.KalkisYeri.ToLower().Contains(val.ToLower()));
+                if (result !=null && result.Count>0)
+                {
+                    return View(result);
+                }
+            }
             return View(seferServis.GetEntities(null));
         }
 

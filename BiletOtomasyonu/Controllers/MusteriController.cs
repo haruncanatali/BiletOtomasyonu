@@ -18,8 +18,16 @@ namespace BiletOtomasyonu.Controllers
             musteriServis = new MusteriDal();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string val = null)
         {
+            if (!String.IsNullOrEmpty(val))
+            {
+                var result = musteriServis.GetEntities(c => (c.Ad + " " + c.Soyad).ToLower().Contains(val.ToLower()));
+                if (result !=null && result.Count>0)
+                {
+                    return View(result);
+                }
+            }
             return View(musteriServis.GetEntities(null));
         }
 

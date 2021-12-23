@@ -18,8 +18,16 @@ namespace BiletOtomasyonu.Controllers
             sehirServis = new SehirDal();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string val = null)
         {
+            if (!String.IsNullOrEmpty(val))
+            {
+                var result = sehirServis.GetEntities(c=>c.SehirAdi.ToLower() == val.ToLower());
+                if (result!=null && result.Count>0)
+                {
+                    return View(result);
+                }
+            }
             return View(sehirServis.GetEntities(null));
         }
 

@@ -10,6 +10,7 @@ namespace BiletOtomasyonu.Models
         public Otobus()
         {
             Seferleri = new List<Sefer>();
+            Suruculeri = new List<Surucu>();
         }
 
         public int Id { get; set; }
@@ -21,5 +22,6 @@ namespace BiletOtomasyonu.Models
         public string Ozellikler { get; set; }
 
         public virtual ICollection<Sefer> Seferleri { get; set; }
+        public virtual ICollection<Surucu> Suruculeri { get; set; }
     }
 }

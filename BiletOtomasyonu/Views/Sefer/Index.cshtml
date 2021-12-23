@@ -14,8 +14,12 @@
 }
 else
 {
-    <div class="text-end" style="margin-right: 15px; margin-bottom: 5px;">
-        <a href="/Sefer/Add" class="btn btn-primary">Ekle</a>
+    <div class="row mt-2 mb-2">
+        <form action="/Sefer/Index" method="get">
+            <input type="text" id="val" name="val" class="form-control" style="float: left; width: 90%; margin-left: 10px;" placeholder="Sefer kalkış yeri Örn. İstanbul" />
+            <input type="submit" class="btn btn-success btn-sm" value="Ara" style="float: left; margin-top: 3px; margin-left: 3px;" />
+            <a href="/Sefer/Add" class="btn btn-primary btn-sm" style="float: left; width: 50px; margin-top: 3px; margin-left: 3px;">Ekle</a>
+        </form>
     </div>
     <table class="table table-bordered table-striped">
         <thead>

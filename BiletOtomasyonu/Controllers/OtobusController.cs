@@ -12,14 +12,24 @@ namespace BiletOtomasyonu.Controllers
     public class OtobusController : Controller
     {
         private IOtobusDal otobusServis;
+        private ISurucuDal surucuServis;
 
         public OtobusController()
         {
             otobusServis = new OtobusDal();
+            surucuServis = new SurucuDal();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string val = null)
         {
+            if (!String.IsNullOrEmpty(val))
+            {
+                var result = otobusServis.GetEntities(c => c.Plaka.ToLower() == val.ToLower());
+                if (result!=null && result.Count>0)
+                {
+                    return View(result);
+                }
+            }
             return View(otobusServis.GetEntities(null));
         }
 
@@ -108,6 +118,14 @@ namespace BiletOtomasyonu.Controllers
                 var result = otobusServis.GetEntity(c => c.Id == id);
                 if (result != null)
                 {
+                    var soforler = surucuServis.GetEntities(c => c.OtobusId == id);
+                    for (int i = 0; i < soforler.Count; i++)
+                    {
+                        surucuServis.Delete(new Surucu
+                        {
+                            Id = soforler[i].Id
+                        });
+                    }
                     otobusServis.Delete(result);
                 }
                 return RedirectToAction("Index", otobusServis.GetEntities(null
